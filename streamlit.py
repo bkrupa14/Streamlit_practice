@@ -30,7 +30,13 @@ data = load_data(10000)
 data_load_state.text("Done! (using st.cache)")
 
 st.subheader('Raw data')
-st.write(data)
+if st.checkbox('Show dataframe'):
+    #chart_data = pd.DataFrame(
+      # np.random.randn(20, 3),
+       #columns=['a', 'b', 'c'])
+
+    #chart_data
+    st.write(data)
 
 
 st.subheader('Number of Unicorns by Year')
