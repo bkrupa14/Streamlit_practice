@@ -49,7 +49,7 @@ df = df.groupby(["Founded Year"]).count().reset_index()
 
 st.markdown('From the Chart below we notice an increase in Unicorn Companies around the mid 2010s with a steep decline following 2015')
 
-#col5, col6 = st.columns((1,1))
+col5, col6 = st.columns((1,1))
 
 
 
@@ -61,7 +61,7 @@ chart = alt.Chart(df).mark_bar().encode(
 ).properties(
     width=800  # controls width of bar.
 )
-#with col5:
-st.altair_chart(chart, use_container_width=True)
-#with col6:
-st.dataframe(df) 
+with col5:
+    st.altair_chart(chart, use_container_width=True)
+with col6:
+    st.dataframe(df) 
