@@ -75,4 +75,5 @@ chart = alt.Chart(df).mark_bar().encode(
 with col5:
     st.altair_chart(chart, use_container_width=True)
 with col6:
-    st.dataframe(df) 
+    st.dataframe(df.style.highlight_max(axis=0))
+    
