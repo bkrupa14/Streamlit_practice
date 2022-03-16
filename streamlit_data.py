@@ -2,8 +2,10 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('/Users/blakekrupa/Desktop/School/Python/Unicorn_Companies.csv')
-df = df[['Company','Founded Year' ]]
+#df = pd.read_csv('/Users/blakekrupa/Desktop/School/Python/Unicorn_Companies.csv')
+df = pd.read_csv('Unicorn_Companies.csv')
+print(df.columns)
+df = df[['Company','Founded Year', 'Industry' ]]
 df = df.replace(to_replace ="None",
                  value =np.nan)
 df = df.dropna()
@@ -18,10 +20,10 @@ df[['Founded Year']] = df[['Founded Year']].apply(pd.to_numeric)
 df = df[(df['Founded Year'] > 1999 ) &
           (df['Founded Year'] <2022  ) ]
 
-df = df.groupby(["Founded Year"]).count().reset_index()
+df = df.groupby(["Founded Year",'Industry']).count().reset_index()
 
 # %%
-df.dtypes
+df
 # %%
 import matplotlib.pyplot as plt
 df.plot.bar(x="Founded Year", y="Company", title="Number of Unicorn Companies founded by Year");

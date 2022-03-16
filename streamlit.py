@@ -35,17 +35,28 @@ st.write(data)
 
 st.subheader('Number of Unicorns by Year')
 
-
+#df = pd.read_csv('/Users/blakekrupa/Desktop/School/Python/Unicorn_Companies.csv')
 df = pd.read_csv('Unicorn_Companies.csv')
-df = df[['Company','Founded Year' ]]
+df = df[['Company','Founded Year', 'Industry' ]]
 df = df.replace(to_replace ="None",
                  value =np.nan)
+df = df.replace(to_replace ="Other",
+                 value =np.nan)
 df = df.dropna()
-df['Company'] = df['Company'].astype(str)
+
+
+
+df['Industry'] = df['Industry'].astype(str)
 df[['Founded Year']] = df[['Founded Year']].apply(pd.to_numeric) 
+
+
 df = df[(df['Founded Year'] > 1999 ) &
-          (df['Founded Year'] <2022  ) ]
-df = df.groupby(["Founded Year"]).count().reset_index()
+          (df['Founded Year'] <2022  )]
+
+df = df.groupby(["Founded Year",'Industry']).count().reset_index()
+df = df[(df['Company'] >3 )]
+
+
 
 st.markdown('From the Chart below we notice an increase in Unicorn Companies around the mid 2010s with a steep decline following 2015')
 
@@ -57,8 +68,8 @@ col5, col6 = st.columns((1,1))
 
 chart = alt.Chart(df).mark_bar().encode(
     alt.X('Founded Year:O', title = 'Year Founded'),
-    alt.Y('Company', title = 'Total Count')
-).properties(
+    alt.Y('Company', title = 'Total Count'),
+    color='Industry').properties(
     width=800  # controls width of bar.
 )
 with col5:
