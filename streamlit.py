@@ -59,7 +59,7 @@ chart = alt.Chart(df).mark_bar().encode(
     alt.X('Founded Year:T', title = 'Year Founded'),
     alt.Y('Company', title = 'Total Count')
 ).properties(
-    width=alt.Step(50)  # controls width of bar.
+    width=600  # controls width of bar.
 )
 with col5:
     st.altair_chart(chart, use_container_width=True)
