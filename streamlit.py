@@ -10,7 +10,8 @@ st.title('Unicorn Companies')
 st.markdown('A unicorn is a privately held company with a valuation over $1 Billion.')
 
 DATE_COLUMN = 'date/time'
-DATA_URL = ('/Users/blakekrupa/Desktop/School/Python/Streamlit_practice/Unicorn_Companies.csv')
+#DATA_URL = ('/Users/blakekrupa/Desktop/School/Python/Streamlit_practice/Unicorn_Companies.csv')
+DATA_URL = ('Unicorn_Companies.csv')
          
 @st.cache
 def load_data(nrows):
@@ -35,7 +36,7 @@ st.write(data)
 st.subheader('Number of Unicorns by Year')
 
 
-df = pd.read_csv('/Users/blakekrupa/Desktop/School/Python/Streamlit_practice/Unicorn_Companies.csv')
+df = pd.read_csv('Unicorn_Companies.csv')
 df = df[['Company','Founded Year' ]]
 df = df.replace(to_replace ="None",
                  value =np.nan)
