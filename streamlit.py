@@ -5,7 +5,7 @@ import numpy as np
 
 import altair as alt
 
-
+st.set_page_config(layout='wide')
 st.title('Unicorn Companies')
 st.markdown('A unicorn is a privately held company with a valuation over $1 Billion.')
 
