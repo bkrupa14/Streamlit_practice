@@ -56,7 +56,7 @@ st.markdown('From the Chart below we notice an increase in Unicorn Companies aro
 
 
 chart = alt.Chart(df).mark_bar().encode(
-    alt.X('Founded Year:T', title = 'Year Founded'),
+    alt.X('Founded Year:O', title = 'Year Founded'),
     alt.Y('Company', title = 'Total Count')
 ).properties(
     width=800  # controls width of bar.
