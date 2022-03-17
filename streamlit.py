@@ -72,7 +72,7 @@ chart = alt.Chart(df).mark_bar().encode(
     alt.X('Founded Year:O', title = 'Year Founded'),
     alt.Y('Company', title = 'Total Count'),
     color='Industry',
-    tooltip = ['Founded Year','Company Count']).properties(
+    tooltip = ['Founded Year','Company']).properties(
     width=800  # controls width of bar.
 ).interactive()
 with col5:
