@@ -71,9 +71,10 @@ col5, col6 = st.columns((1,1))
 chart = alt.Chart(df).mark_bar().encode(
     alt.X('Founded Year:O', title = 'Year Founded'),
     alt.Y('Company', title = 'Total Count'),
-    color='Industry').properties(
+    color='Industry',
+    tooltip = ['Founded Year','Company']).properties(
     width=800  # controls width of bar.
-)
+).interactive()
 with col5:
     st.altair_chart(chart, use_container_width=True)
 with col6:
