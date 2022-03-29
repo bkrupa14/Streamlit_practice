@@ -80,3 +80,5 @@ with col5:
 with col6:
     st.dataframe(df.style.highlight_max(axis=0))
     
+
+st.latex(r'''\underbrace{Y_i}_\text{Height 18} = \beta_0 + \beta_1 \underbrace{X_i}_\text{Height 2} + \epsilon_i \quad \text{where} \ \epsilon_i \sim N(0, \sigma^2)''')
